@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	                   http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+		
+
+<!-- 		
+By default, ApplicationContext implementations eagerly create and configure all singleton beans as part of the initialization process. 
+Generally, this pre-instantiation is desirable, because errors in the configuration or surrounding environment are discovered immediately, as opposed to hours or even days later. When this behavior is not desirable, you can prevent pre-instantiation of a singleton bean by marking the bean definition as lazy-initialized. 
+A lazy-initialized bean tells the IoC container to create a bean instance when it is first requested, 
+rather than at startup time.	
+      -->    
+       
+        
+      
+      
+    <!--  Object of Class 'udmy.com.test.model.Customer' is not created at startup time , which is   created  only when IOC container or application Container create an object  
+        of  'udmy.com.test.serviceImp.CustomerServiceImp'   at startup time -->
+      <context:component-scan base-package="udmy.com.test.configuration"></context:component-scan>   
+                        
+<bean id="customer"  class="udmy.com.test.model.Customer"   init-method="customized" destroy-method="destroyed" lazy-init="true">
+   <property name="customerid"  value="1"/>
+   <property name="firstName"  value="Karan"/>
+   <property name="lastName"  value="Kumar"/>
+   <property name="phno"  value="9047556566"/>
+   <property name="email"  value="baria@yahoo.com"/>
+ </bean>
+   
+   
+   
+<bean id="customerService"  class="udmy.com.test.serviceImp.CustomerServiceImp"   init-method="customized">
+       <property name="customer"   ref="customer"/>
+
+</bean>
+
+<!--   Track all Bean Objects 'After Property set' method Called...... -->
+<bean  class="udmy.com.test.beanChecking.BeanBefeforeAndAfterIntialization"/>
+
+
+<bean id="userService"  class="udmy.com.test.serviceImp.UserServiceImp"/>
+<bean id="userDao"  class="udmy.com.test.UserDaoImpRepository.UserDaoImp"/>
+
+
+<bean id="loanservice"  class="udmy.com.test.serviceImp.LaonAccountsServiceImp"/>
+<bean id="loanDao"  class="udmy.com.test.UserDaoImpRepository.LoanAccountsDaoImp"/>
+
+
+
+    
+	</beans>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+
+
+ 
+<servlet>
+<servlet-name>admindispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+   <init-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>/WEB-INF/config/admindispatcher-servlet-admin.xml</param-value>
+  </init-param>
+  
+  <load-on-startup>1</load-on-startup>
+ 
+</servlet>
+
+
+<servlet>
+
+<servlet-name>userdispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+   <init-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>/WEB-INF/config/userdispatcher-servlet-user.xml</param-value>
+  </init-param>
+  
+  <load-on-startup>2</load-on-startup>
+ 
+</servlet>
+
+
+<servlet-mapping>
+<servlet-name>admindispatcher</servlet-name>
+<url-pattern>/admin/*</url-pattern> 
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>userdispatcher</servlet-name>
+<url-pattern>/user/*</url-pattern> 
+</servlet-mapping>
+
+
+
+
+     <!-- It is a root application context for all web application Context(Dispatcher Servlet)...... --> 
+     
+     <!-- Use Listener to track the events  of application....... -->
+     <!-- We can create multiple Listeners to track the events  of application....... -->
+     <!-- We can create multiple Listeners to track the events  of application....... -->
+     
+  
+  
+  <!--   now need to create application-context.xml file for context initialized -->
+   <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener> 
+
+
+<!-- Root Contxt of Application ,  if we have not specify customized location ,it will available in /WEN-INF/applicationContext.xml-->
+<context-param>
+    <param-name>
+      contextConfigLocation
+    </param-name>
+    <param-value>
+      /WEB-INF/rootcontext/applicationContext.xml
+    </param-value>
+   </context-param> 
+ 
+
+</web-app>
+
