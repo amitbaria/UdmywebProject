@@ -1,0 +1,34 @@
+Controller Test
+   JUnit
+   Hamcrest   (For MVC Controller)
+   MockMvc
+   
+   
+Service  API Test
+
+   JUnit
+   Mockito (Service class and  method testing)
+   
+   
+   
+ Set up Database Postgres SQL  
+          1. Username/Password
+          2. Create Database(Postgres)
+          
+          
+          
+          
+ 
+ For This not required Database.....
+          
+@RequestMapping(value="/customerinfo/{userid}")
+localhost:8080/UdmywebProject/user/customerinfo/1          
+          
+
+   
+   
+   
+   
+   
+   
+    
