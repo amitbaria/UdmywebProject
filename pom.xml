@@ -25,7 +25,7 @@
     <hibernate-core-version>5.2.12.Final</hibernate-core-version>
     <postgresSql-version>9.4-1200-jdbc41</postgresSql-version>
 
-    <junit-version>4.12</junit-version>
+    <junit-version>4.13.1</junit-version>
   </properties>
 
 
