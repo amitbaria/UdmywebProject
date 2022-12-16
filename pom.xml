@@ -19,7 +19,7 @@
     <mavn.compliler.source>8</mavn.compliler.source>
     <maven.compiler.target>8</maven.compiler.target>
 
-    <spring-version>5.0.5.RELEASE</spring-version>
+    <spring-version>5.2.20.RELEASE</spring-version>
     <log4j.version>2.10.0</log4j.version>
     <spring-orm-version>5.0.2.RELEASE</spring-orm-version>
     <hibernate-core-version>5.2.12.Final</hibernate-core-version>
